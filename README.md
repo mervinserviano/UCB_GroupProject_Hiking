@@ -1,1 +1,0 @@
-# UCB_GroupProject_Hiking
