@@ -1,16 +1,31 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- Bootstrap link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+    <!-- Google font link -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    
+
+    <!-- CSS link -->
+    <link rel="stylesheet" href="assets/style.css">
+    <title>HikerApp</title>
 </head>
 
 <body>
 
     <main>
+            <nav class="navbar">
+                    <span class="navbar-brand mb-0 h1 height=50"><i class="fas fa-hiking"></i> HikerApp</span>
+                  </nav>
 
     </main>
 
@@ -43,8 +58,8 @@
     // var locationZip = zip=94102,us
     // var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + locationZip + "&appid=" + APIKey;
     
-    var place = prompt('Enter a City or Town: ').toLowerCase().trim();
-    var country = prompt('Enter a Country or State Initials: ').toLowerCase().trim();
+    // var place = prompt('Enter a City or Town: ').toLowerCase().trim();
+    // var country = prompt('Enter a Country or State Initials: ').toLowerCase().trim();
 
     function callGeo(){
         $.ajax({

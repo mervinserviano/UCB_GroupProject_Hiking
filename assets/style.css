@@ -1,0 +1,19 @@
+nav.navbar {
+    height: 90px;
+    background-color: darkseagreen;
+    opacity: 0.3;
+    
+}
+
+.navbar-brand {
+    font-size: 50px;
+    color: white;
+    margin: 0 auto;
+    font-family: lobster;
+
+}
+
+/* span {
+    margin: 0 auto;
+
+} */
