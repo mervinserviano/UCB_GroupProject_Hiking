@@ -27,6 +27,9 @@
                     <span class="navbar-brand mb-0 h1 height=50"><i class="fas fa-hiking"></i> HikerApp</span>
                   </nav>
 
+                  <input  id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on">
+                  <button onclick="consoleMe()">Push Me</button>
+
                   <div class="card" style="width: 26rem;">
                     <img class="card-img-top" src="assets/images/image.png" alt="Card image cap">
                     <div class="card-body">
@@ -76,9 +79,12 @@
     // var place = prompt('Enter a City or Town: ').toLowerCase().trim();
     // var country = prompt('Enter a Country or State Initials: ').toLowerCase().trim();
 
-    function callGeo(){
+    
+
+    function callGeo(place){
         $.ajax({
-        url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + place + country +'&key=AIzaSyCd001KkrxyfVaMHMnO9UUbZYHN6ZTU3RQ',
+        
+        url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + place + '&key=AIzaSyCd001KkrxyfVaMHMnO9UUbZYHN6ZTU3RQ',
         method: "GET",
         type: "json"
     }).then(function (response) {
@@ -90,6 +96,7 @@
         callHiking(latGeo, longGeo)
     });
     }
+
 
     function callHiking(latGeo,longGeo){
         $.ajax({
@@ -125,7 +132,34 @@
     });
     }
 
-    callGeo()
+    // callGeo()
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript"></script>
+<script type="text/javascript">
+var input;
+   function initialize() {
+      input = document.getElementById('searchTextField');
+      var options = {
+        types: ['geocode'] 
+      };
+      var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+   }
+   google.maps.event.addDomListener(window, 'load', initialize);
+
+   function consoleMe() {
+       var inputer = $(input).val().split(" ");
+       var secondLast = inputer.indexOf(inputer[inputer.length-2])
+       var last = inputer.indexOf(inputer[inputer.length-1])
+       inputer.splice(last,last)
+    
+       var inputer = inputer.join().concat().replace(/,/g,"")
+     
+       console.log(inputer)
+       callGeo(inputer)
+   }
 
 </script>
 
