@@ -38,15 +38,3 @@ button {
     margin-bottom: 20px;
     cursor: pointer;
 }
-
-.top-left {
-    position: absolute;
-    top: 8px;
-    left: 16px;
-}
-
-.container {
-    position: relative;
-    text-align: center;
-    color: white;
-}

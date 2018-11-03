@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,18 @@
 
     <!-- Bootstrap link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous">
+        crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+        crossorigin="anonymous">
 
     <!-- Google font link -->
-    <link href="https://fonts.googleapis.com/css?family=Acme|Dancing+Script|Gloria+Hallelujah|Kanit|Lobster|Pacifico|Permanent+Marker|Shadows+Into+Light" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css?family=Acme|Dancing+Script|Gloria+Hallelujah|Kanit|Lobster|Pacifico|Permanent+Marker|Shadows+Into+Light"
+        rel="stylesheet">
+
+    <!-- Favicon link -->
+    <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" type="image/ico" href="assets/hiker.png">
 
     <!-- CSS link -->
     <link rel="stylesheet" href="assets/style.css">
@@ -23,29 +29,43 @@
 <body>
 
     <main>
-            <nav class="navbar">
-                    <span class="navbar-brand mb-0 h1 height=50"><i class="fas fa-hiking"></i> HikerApp</span>
-                  </nav>
-
-                  <!-- <input  id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on">
-                  <button onclick="consoleMe()">Push Me</button> -->
-
-                  <div class="card" style="width: 25rem;">
-                    <img class="card-img-top" src="assets/images/Trail-Sign_2.jpg" alt="Card image cap">
+        <nav class="navbar">
+            <span class="navbar-brand mb-0 h1 height=50"><i class="fas fa-hiking"></i> HikerApp</span>
+        </nav>
+    
+            <!-- <div class="card" style="width: 23rem;">
+                <img class="card-img-top" src="assets/images/Trail-Sign_2.jpg" alt="Card image cap">
+                <div class="card-body" id="searchResults">
+                    <h5 class="card-title">GO HIKER!</h5>
+                </div>
+                <div>
+                <ul class="list-group list-group-flush">
+                    <input id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on">
+                    <br>
+                    <button onclick="consoleMe()">Search</button>
+                </ul>
+                </div>
+                <br>
+                <br> -->
+                <div class="card" style="width: 23rem;">
                     <div class="card-body">
-                      <h5 class="card-title">GO HIKER!</h5>
-                      <p class="card-text">Choose a place and time and we'll do the rest!</p>
+                        <div class="container">
+                        <img class="card-img-top" src="https://www.trailguru.co.uk/images/FuWRehefuW4nE8eK/marin_05.jpg"
+                            alt="Card image cap">
+                            <div class="top-left">Trail</div>
+                        </div>
+                            <h3 class="card-title">Weather</h3>
+                        </div>
+                        <div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Status: Open</li>
+                                <li class="list-group-item">Condition: Dry</li>
+                                <li class="list-group-item">Difficulty: Medium</li>
+                                <li class="list-group-item">Stars: *****</li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">Date</li>
-                      <!-- <li class="list-group-item">Location</li> -->
-                      <input  id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on">
-                  <button onclick="consoleMe()">Push Me</button>
-                    </ul>
-                    <!-- <div class="card-body">
-                      <a href="#" class="card-link">Search</a>
-                    </div> -->
-                  </div>
+
 
     </main>
 
@@ -77,61 +97,61 @@
     // var APIKey = "166a433c57516f51dfab1f7edaed8413";
     // var locationZip = zip=94102,us
     // var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + locationZip + "&appid=" + APIKey;
-    
+
     // var place = prompt('Enter a City or Town: ').toLowerCase().trim();
     // var country = prompt('Enter a Country or State Initials: ').toLowerCase().trim();
 
-    
 
-    function callGeo(place){
+
+    function callGeo(place) {
         $.ajax({
-        
-        url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + place + '&key=AIzaSyCd001KkrxyfVaMHMnO9UUbZYHN6ZTU3RQ',
-        method: "GET",
-        type: "json"
-    }).then(function (response) {
-        console.log(response)
-        // console.log(response.results[0].geometry.location)
-        // console.log(response.results[0].geometry.location.lng)
-        var latGeo = response.results[0].geometry.location.lat
-        var longGeo = response.results[0].geometry.location.lng
-        callHiking(latGeo, longGeo)
-    });
+
+            url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + place + '&key=AIzaSyCd001KkrxyfVaMHMnO9UUbZYHN6ZTU3RQ',
+            method: "GET",
+            type: "json"
+        }).then(function (response) {
+            console.log(response)
+            // console.log(response.results[0].geometry.location)
+            // console.log(response.results[0].geometry.location.lng)
+            var latGeo = response.results[0].geometry.location.lat
+            var longGeo = response.results[0].geometry.location.lng
+            callHiking(latGeo, longGeo)
+        });
     }
 
 
-    function callHiking(latGeo,longGeo){
+    function callHiking(latGeo, longGeo) {
         $.ajax({
-        // url: 'https://data.sfgov.org/api/views/u2ac-gv9v/rows.xml',
-        url: 'https://www.hikingproject.com/data/get-trails?lat=' + latGeo + '&' + 'lon=' + longGeo + '&maxDistance=10&key=200381349-b66dbdd97d00ee3c460e33b5beb94b9f',
-        method: "GET",
-        type: "json"
-    }).then(function (response) {
-        console.log('Trails')
-        console.log(response)
-       
-        if(response.trails.length === 0) {
-            console.log("No Trails Here. Search in a different location.")
-        }else {
-            var latitude = response.trails[0].latitude;
-            var longitude = response.trails[0].longitude;
-            callWeather(latitude, longitude)
-        }
-        
-    });
+            // url: 'https://data.sfgov.org/api/views/u2ac-gv9v/rows.xml',
+            url: 'https://www.hikingproject.com/data/get-trails?lat=' + latGeo + '&' + 'lon=' + longGeo + '&maxDistance=10&key=200381349-b66dbdd97d00ee3c460e33b5beb94b9f',
+            method: "GET",
+            type: "json"
+        }).then(function (response) {
+            console.log('Trails')
+            console.log(response)
+
+            if (response.trails.length === 0) {
+                console.log("No Trails Here. Search in a different location.")
+            } else {
+                var latitude = response.trails[0].latitude;
+                var longitude = response.trails[0].longitude;
+                callWeather(latitude, longitude)
+            }
+
+        });
     }
 
-    function callWeather(lat, lon){
+    function callWeather(lat, lon) {
         $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + '&' + "lon=" + lon + "&appid=" + '166a433c57516f51dfab1f7edaed8413',
-        method: "GET",
-        type: "json"
+            url: "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + '&' + "lon=" + lon + "&appid=" + '166a433c57516f51dfab1f7edaed8413',
+            method: "GET",
+            type: "json"
 
-    }).then(function (response) {
-        console.log('Weather')
-        console.log(response)
+        }).then(function (response) {
+            console.log('Weather')
+            console.log(response)
 
-    });
+        });
     }
 
     // callGeo()
@@ -140,28 +160,28 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript"></script>
 <script type="text/javascript">
-var input;
-   function initialize() {
-      input = document.getElementById('searchTextField');
-      var options = {
-        types: ['geocode'] 
-      };
-      var autocomplete = new google.maps.places.Autocomplete(input, options);
+    var input;
+    function initialize() {
+        input = document.getElementById('searchTextField');
+        var options = {
+            types: ['geocode']
+        };
+        var autocomplete = new google.maps.places.Autocomplete(input, options);
 
-   }
-   google.maps.event.addDomListener(window, 'load', initialize);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
 
-   function consoleMe() {
-       var inputer = $(input).val().split(" ");
-       var secondLast = inputer.indexOf(inputer[inputer.length-2])
-       var last = inputer.indexOf(inputer[inputer.length-1])
-       inputer.splice(last,last)
-    
-       var inputer = inputer.join().concat().replace(/,/g,"")
-     
-       console.log(inputer)
-       callGeo(inputer)
-   }
+    function consoleMe() {
+        var inputer = $(input).val().split(" ");
+        var secondLast = inputer.indexOf(inputer[inputer.length - 2])
+        var last = inputer.indexOf(inputer[inputer.length - 1])
+        inputer.splice(last, last)
+
+        var inputer = inputer.join().concat().replace(/,/g, "")
+
+        console.log(inputer)
+        callGeo(inputer)
+    }
 
 </script>
 
