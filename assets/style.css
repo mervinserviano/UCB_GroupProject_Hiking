@@ -26,6 +26,9 @@ div.card {
     border-radius: 15px;
 }
 
+.card-body {
+    padding: 0; 
+}
 #searchTextField {
     width: 80%;
     margin: 0 auto;
@@ -50,4 +53,11 @@ button {
     position: relative;
     text-align: center;
     color: white;
+    padding: 0;
+}
+
+img.card-img-top {
+    margin: 0;
+    padding: 0;
+    height: 200px;   
 }
