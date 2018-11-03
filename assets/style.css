@@ -15,6 +15,7 @@ nav.navbar {
 
 body {
     background-image: url(../assets/images/Hiking_Site.jpg);
+    
 }
 
 div.card {
@@ -22,3 +23,5 @@ div.card {
     top: 80px;
     width: 50%;
 }
+
+
