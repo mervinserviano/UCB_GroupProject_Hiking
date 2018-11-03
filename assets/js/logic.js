@@ -67,7 +67,7 @@
             for(var i=0; i < response.trails.length; i++) {
                 
                 if((i % 3) === 0) {
-                var row = $('<div class="row justify-content-center">');
+                var row = $('<div class="row">');
                 $("#results").append(row);
                 var col = $('<div class="col-lg-4">');
                 $(row).append(col);
@@ -90,24 +90,9 @@
             </div>
                 </div>`);
                 $(col).append(cardCon)
-                
-                // $('card-img-top').attr('src', response.trails[i].imgSmallMed);
-
-
-                // var cardImg = $('<img class="card-img-top">');
-                // cardImg.attr('src', response.trails[i].imgSmallMed)
-                // $(cardCon).append(cardImg);
-                // }else {
-                  
-                // var col = $('<div class="col-lg-4">');
-                // $(row).append(col);
-                // var cardCon = $('<div class="card mt-5" style="width: 18rem;">');
-                // $(col).append(cardCon)
-                // var cardImg = $('<img class="card-img-top">');
-                // cardImg.attr('src', response.trails[i].imgSmallMed)
-                // $(cardCon).append(cardImg);
+              
                 }else {
-                    $(row).append(col);
+                var col = $('<div class="col-lg-4">');
                 var cardCon = $(`<div class="card mt-5" style="width: 23rem;">
                 <div class="card-body">
                 <div class="container">
@@ -127,6 +112,7 @@
             </div>
                 </div>`);
                 $(col).append(cardCon)
+                $(row).append(col)
                 }
                 
             }
@@ -156,7 +142,12 @@
             console.log("max temp: " + resp[i].temp.max) //return the daily min or use max
             console.log("icon: " + resp[i].weather[0].icon) //will return weather description eg "light rain"
             console.log("Description: " + resp[i].weather[0].description) //will return weather description eg "light rain"
-        }
+            var neEl = $('<h1>')
+            neEl.text(resp[i].weather[0].description)
+            $("#weather").append(neEl)
+        } //weather icons can be pulled: http://openweathermap.org/img/w/10d.png
+
+       
         
 //TODO icon reference to our own icons 
 
