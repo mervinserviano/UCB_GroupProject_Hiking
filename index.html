@@ -54,35 +54,8 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    var lat = 37.7666;
-    var long = -122.4511;
-
-
-    // function getLocation() {
-    //     if (navigator.geolocation) {
-    //         navigator.geolocation.getCurrentPosition(showPosition);
-    //     } else {
-    //         console.log("Geolocation is not supported by this browser.");
-    //     }
-    // }
-    // function showPosition(position) {
-    //     // console.log("Latitude: " + position.coords.latitude +
-    //     //     "Longitude: " + position.coords.longitude);
-
-    //     lat = position.coords.latitude;
-    //     long = position.coords.longitude;
-    //     console.log(long,lat)
-    //     makeCall(long, lat)
-    // }
-
-    // getLocation()
-
-    // var APIKey = "166a433c57516f51dfab1f7edaed8413";
-    // var locationZip = zip=94102,us
-    // var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + locationZip + "&appid=" + APIKey;
-    
-    // var place = prompt('Enter a City or Town: ').toLowerCase().trim();
-    // var country = prompt('Enter a Country or State Initials: ').toLowerCase().trim();
+    var lat;
+    var long;
 
     
 
@@ -141,6 +114,30 @@
             var latitude = response.trails[0].latitude;
             var longitude = response.trails[0].longitude;
             callWeather(latitude, longitude)
+            for(var i=0; i < response.trails.length; i++) {
+                
+                if((i % 3) === 0) {
+                var row = $('<div class="row justify-content-center">');
+                $("#results").append(row);
+                var col = $('<div class="col-lg-4">');
+                $(row).append(col);
+                var cardBody = $('<div class="card mt-5" style="width: 18rem;">');
+                $(col).append(cardBody)
+                var cardImg = $('<img class="card-img-top">');
+                cardImg.attr('src', response.trails[i].imgSmallMed)
+                $(cardBody).append(cardImg);
+                }else {
+                  
+                var col = $('<div class="col-lg-4">');
+                $(row).append(col);
+                var cardBody = $('<div class="card mt-5" style="width: 18rem;">');
+                $(col).append(cardBody)
+                var cardImg = $('<img class="card-img-top">');
+                cardImg.attr('src', response.trails[i].imgSmallMed)
+                $(cardBody).append(cardImg);
+                }
+                
+            }
         }
         
     });
