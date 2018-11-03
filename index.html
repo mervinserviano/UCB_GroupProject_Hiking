@@ -49,11 +49,14 @@
 
     </main>
 
+    <div id="results"></div>
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    var lat;
-    var long;
+    var lat = 37.7666;
+    var long = -122.4511;
+
 
     // function getLocation() {
     //     if (navigator.geolocation) {
@@ -96,6 +99,7 @@
         var latGeo = response.results[0].geometry.location.lat
         var longGeo = response.results[0].geometry.location.lng
         callHiking(latGeo, longGeo)
+        
     });
     }
 
@@ -109,6 +113,27 @@
     }).then(function (response) {
         console.log('Trails')
         console.log(response)
+
+    // var trails = response.trails[0]
+    // var name = trails.name
+    // var difficulty = trails.difficulty
+
+    // console.log("Name: " + name)
+    // console.log("Difficulty: " + difficulty)
+
+    // for (var i = 0; i < trails.length; i++) {//loop through data for needed responses
+    //   var rating = response[i].rating;//rating
+    //   var stillURL = response[i].images.fixed_height_still.url;//image
+    //   var animateURL = response[i].images.fixed_height.url;//Animate
+    //   var content = $("<div class='content'>");
+    //   var ratingP = $("<p>").text("Rating: " + rating);
+    //   var image = $("<img class='image'>").attr({
+    //     "src" : stillURL,
+    //     "data-still" : stillURL,
+    //     "data-animate" : animateURL
+    //   });
+      
+
        
         if(response.trails.length === 0) {
             console.log("No Trails Here. Search in a different location.")
@@ -121,24 +146,92 @@
     });
     }
 
+    var days = 16;
+
     function callWeather(lat, lon){
-        $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + '&' + "lon=" + lon + "&appid=" + '166a433c57516f51dfab1f7edaed8413',
+        $.ajax({ //api.openweathermap.org/data/2.5/forecast/daily?lat=35&lon=139&cnt=10
+        url: "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" + lat + "&lon=" + lon + "&units=imperial&cnt=" + days + "&appid=166a433c57516f51dfab1f7edaed8413",
         method: "GET",
         type: "json"
 
     }).then(function (response) {
-        console.log('Weather')
         console.log(response)
+        var resp = response.list// 0 is today. Actual response is reponse of var days.
+        console.log(resp.length)
+
+        //TODO return next xx days of weather
+        for (var i = 0; i < resp.length; i++) {
+            console.log("Date: " + aryDates[i])
+            console.log("min temp: " + resp[i].temp.min) //return the daily min or use max
+            console.log("max temp: " + resp[i].temp.max) //return the daily min or use max
+            console.log("icon: " + resp[i].weather[0].icon) //will return weather description eg "light rain"
+            console.log("Description: " + resp[i].weather[0].description) //will return weather description eg "light rain"
+        }
+        
+        // Weather returns 0-xx days, where day 0 is today. 
+        // Return min/max temp
+//TODO icon reference to our own icons
+
+//TODO getDay() eg Saturday = 6. Use arry of the week 
+
 
     });
     }
 
     // callGeo()
 
+    function GetDates(startDate, daysToAdd) {
+    var aryDates = [];
+
+    for(var i = 0; i <= daysToAdd; i++) {
+        var currentDate = new Date();
+        currentDate.setDate(startDate.getDate() + i);
+        aryDates.push(DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + MonthAsString(currentDate.getMonth()) + " " + currentDate.getFullYear());
+    }
+    
+    return aryDates;
+}
+
+function MonthAsString(monthIndex) {
+    var d=new Date();
+    var month=new Array();
+    month[0]="January";
+    month[1]="February";
+    month[2]="March";
+    month[3]="April";
+    month[4]="May";
+    month[5]="June";
+    month[6]="July";
+    month[7]="August";
+    month[8]="September";
+    month[9]="October";
+    month[10]="November";
+    month[11]="December";
+    
+    return month[monthIndex];
+}
+
+function DayAsString(dayIndex) {
+    var weekdays = new Array(7);
+    weekdays[0] = "Sunday";
+    weekdays[1] = "Monday";
+    weekdays[2] = "Tuesday";
+    weekdays[3] = "Wednesday";
+    weekdays[4] = "Thursday";
+    weekdays[5] = "Friday";
+    weekdays[6] = "Saturday";
+    
+    return weekdays[dayIndex];
+}
+
+var startDate = new Date();
+var aryDates = GetDates(startDate, 15);
+var aryLen = aryDates.length
+console.log(aryDates);
+
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places" type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGdZ5PEZ_h5alUL3ZXKlEc6It_kSBRhmY&libraries=places" type="text/javascript"></script>
 <script type="text/javascript">
 var input;
    function initialize() {
@@ -162,6 +255,7 @@ var input;
        console.log(inputer)
        callGeo(inputer)
    }
+
 
 </script>
 
