@@ -57,26 +57,6 @@
         console.log('Trails')
         console.log(response)
 
-    // var trails = response.trails[0]
-    // var name = trails.name
-    // var difficulty = trails.difficulty
-
-    // console.log("Name: " + name)
-    // console.log("Difficulty: " + difficulty)
-
-    // for (var i = 0; i < trails.length; i++) {//loop through data for needed responses
-    //   var rating = response[i].rating;//rating
-    //   var stillURL = response[i].images.fixed_height_still.url;//image
-    //   var animateURL = response[i].images.fixed_height.url;//Animate
-    //   var content = $("<div class='content'>");
-    //   var ratingP = $("<p>").text("Rating: " + rating);
-    //   var image = $("<img class='image'>").attr({
-    //     "src" : stillURL,
-    //     "data-still" : stillURL,
-    //     "data-animate" : animateURL
-    //   });
-      
-
        
         if(response.trails.length === 0) {
             console.log("No Trails Here. Search in a different location.")
@@ -91,25 +71,68 @@
                 $("#results").append(row);
                 var col = $('<div class="col-lg-4">');
                 $(row).append(col);
-                var cardBody = $('<div class="card mt-5" style="width: 18rem;">');
-                $(col).append(cardBody)
-                var cardImg = $('<img class="card-img-top">');
-                cardImg.attr('src', response.trails[i].imgSmallMed)
-                $(cardBody).append(cardImg);
-                }else {
+                var cardCon = $(`<div class="card mt-5" style="width: 23rem;">
+                <div class="card-body">
+                <div class="container">
+                <img class="card-img-top" src="${response.trails[i].imgSmallMed}"
+                    alt="Card image cap">
+                    <div class="top-left">${response.trails[i].name}</div>
+                </div>
+                </div>
+                <div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Status: ${response.trails[i].conditionStatus}</li>
+                        <li class="list-group-item">Condition: ${response.trails[i].conditionDetails}</li>
+                        <li class="list-group-item">Difficulty: ${response.trails[i].difficulty}</li>
+                        <li class="list-group-item">Stars: ${response.trails[i].stars}<li>
+                    </ul>
+                </div>
+            </div>
+                </div>`);
+                $(col).append(cardCon)
+                
+                // $('card-img-top').attr('src', response.trails[i].imgSmallMed);
+
+
+                // var cardImg = $('<img class="card-img-top">');
+                // cardImg.attr('src', response.trails[i].imgSmallMed)
+                // $(cardCon).append(cardImg);
+                // }else {
                   
-                var col = $('<div class="col-lg-4">');
-                $(row).append(col);
-                var cardBody = $('<div class="card mt-5" style="width: 18rem;">');
-                $(col).append(cardBody)
-                var cardImg = $('<img class="card-img-top">');
-                cardImg.attr('src', response.trails[i].imgSmallMed)
-                $(cardBody).append(cardImg);
+                // var col = $('<div class="col-lg-4">');
+                // $(row).append(col);
+                // var cardCon = $('<div class="card mt-5" style="width: 18rem;">');
+                // $(col).append(cardCon)
+                // var cardImg = $('<img class="card-img-top">');
+                // cardImg.attr('src', response.trails[i].imgSmallMed)
+                // $(cardCon).append(cardImg);
+                }else {
+                    $(row).append(col);
+                var cardCon = $(`<div class="card mt-5" style="width: 23rem;">
+                <div class="card-body">
+                <div class="container">
+                <img class="card-img-top" src="${response.trails[i].imgSmallMed}"
+                    alt="Card image cap">
+                    <div class="top-left">${response.trails[i].name}</div>
+                </div>
+                </div>
+                <div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Status: ${response.trails[i].conditionStatus}</li>
+                        <li class="list-group-item">Condition: ${response.trails[i].conditionDetails}</li>
+                        <li class="list-group-item">Difficulty: ${response.trails[i].difficulty}</li>
+                        <li class="list-group-item">Stars: ${response.trails[i].stars}<li>
+                    </ul>
+                </div>
+            </div>
+                </div>`);
+                $(col).append(cardCon)
                 }
                 
             }
         }
-        
+       
+    
     });
     }
 
@@ -135,12 +158,7 @@
             console.log("Description: " + resp[i].weather[0].description) //will return weather description eg "light rain"
         }
         
-        // Weather returns 0-xx days, where day 0 is today. 
-        // Return min/max temp
-//TODO icon reference to our own icons
-
-//TODO getDay() eg Saturday = 6. Use arry of the week 
-
+//TODO icon reference to our own icons 
 
         });
     }
@@ -219,3 +237,5 @@ console.log(aryDates);
         console.log(inputer)
         callGeo(inputer)
     }
+
+    
