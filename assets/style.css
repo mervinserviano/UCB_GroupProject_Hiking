@@ -14,7 +14,7 @@ nav.navbar {
 
 body {
     background-image: url(../assets/images/Hiking_Site.jpg);
-    
+    color: black;
 }
 
 div.card {
@@ -49,6 +49,7 @@ button {
     left: 16px;
 }
 
+<<<<<<< HEAD
 .container {
     position: relative;
     text-align: center;
@@ -61,3 +62,6 @@ img.card-img-top {
     padding: 0;
     height: 200px;   
 }
+=======
+
+>>>>>>> c85bc2cb32906641bd612481a810031cd08343ca
