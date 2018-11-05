@@ -16,6 +16,7 @@
     <!-- Google font link -->
     <link href="https://fonts.googleapis.com/css?family=Acme|Dancing+Script|Gloria+Hallelujah|Kanit|Lobster|Pacifico|Permanent+Marker|Shadows+Into+Light"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bellefair|Dekko|Mallanna|McLaren|Poor+Story|Yatra+One" rel="stylesheet">
 
     <!-- Favicon link -->
     <link rel="shortcut icon" type="image/png" href="/favicon.png" />
@@ -27,29 +28,51 @@
 </head>
 
 <body>
-<div class="container-fluid">
-    <main>
-        <nav class="navbar">
-            <span class="navbar-brand mb-0 h1 height=50"><i class="fas fa-hiking"></i> HikerApp</span>
-        </nav>
-    
-            <div class="card" style="width: 23rem;">
-                <img class="card-img-top" src="assets/images/Trail-Sign_2.jpg" alt="Card image cap">
-                <div class="card-body" id="searchResults">
-                    <h5 class="card-title">GO HIKER!</h5>
+    <div class="container-fluid">
+        <main>
+            <nav class="navbar">
+                <span class="navbar-brand mb-0 h1 height=50"><i class="fas fa-hiking"></i> HikerApp</span>
+            </nav>
+            <!-- <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
                 </div>
-                <div>
+              </div> -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h2>GO HIKER!</h2>
+                        <br><br>
+                        <div id="custom-search-input">
+                            <div class="input-group col-sm-12">
+                                <input id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on">
+                                <button onclick="consoleMe()" >Search</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="card" style="width: 23rem;">
+            <img class="card-img-top" src="assets/images/Trail-Sign_2.jpg" alt="Card image cap">
+            <div class="card-body" id="searchResults">
+                <h5 class="card-title">GO HIKER!</h5>
+            </div>
+            <div>
                 <ul class="list-group list-group-flush">
                     <input id="searchTextField" type="text" size="50" placeholder="Enter a location" autocomplete="on">
                     <br>
                     <button onclick="consoleMe()">Search</button>
                 </ul>
-                </div>
-    </main>
+            </div> -->
+        </main>
 
-    <div id="weather"></div>
-    <div id="results" class="container-fluid"></div>
-</div>
+        <div id="weather"></div>
+        <div id="results" class="container-fluid"></div>
+    </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGdZ5PEZ_h5alUL3ZXKlEc6It_kSBRhmY&libraries=places" type="text/javascript"></script>
