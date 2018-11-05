@@ -43,6 +43,7 @@
             var latGeo = response.results[0].geometry.location.lat
             var longGeo = response.results[0].geometry.location.lng
             callHiking(latGeo, longGeo)
+            callWeather(latGeo, longGeo)
         });
     }
 
@@ -124,9 +125,9 @@
 
     var days = 16;
 
-    function callWeather(lat, lon){
+    function callWeather(latGeo, longGeo){
         $.ajax({ //api.openweathermap.org/data/2.5/forecast/daily?lat=35&lon=139&cnt=10
-        url: "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" + lat + "&lon=" + lon + "&units=imperial&cnt=" + days + "&appid=166a433c57516f51dfab1f7edaed8413",
+        url: "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" + latGeo + "&lon=" + longGeo + "&units=imperial&cnt=" + days + "&appid=166a433c57516f51dfab1f7edaed8413",
         method: "GET",
         type: "json"
 
@@ -157,48 +158,48 @@
     // callGeo()
 
     function GetDates(startDate, daysToAdd) {
-    var aryDates = [];
-
-    for(var i = 0; i <= daysToAdd; i++) {
-        var currentDate = new Date();
-        currentDate.setDate(startDate.getDate() + i);
-        aryDates.push(DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + MonthAsString(currentDate.getMonth()) + " " + currentDate.getFullYear());
+        var aryDates = [];
+    
+        for(var i = 0; i <= daysToAdd; i++) {
+            var currentDate = new Date();
+            currentDate.setDate(startDate.getDate() + i);
+            aryDates.push(DayAsString(currentDate.getDay()) + ", " + MonthAsString(currentDate.getMonth()) + " " + currentDate.getDate() );
+        }
+        
+        return aryDates;
     }
     
-    return aryDates;
-}
-
-function MonthAsString(monthIndex) {
-    var d=new Date();
-    var month=new Array();
-    month[0]="January";
-    month[1]="February";
-    month[2]="March";
-    month[3]="April";
-    month[4]="May";
-    month[5]="June";
-    month[6]="July";
-    month[7]="August";
-    month[8]="September";
-    month[9]="October";
-    month[10]="November";
-    month[11]="December";
+    function MonthAsString(monthIndex) {
+        var d=new Date();
+        var month=new Array();
+        month[0]="Jan";
+        month[1]="Feb";
+        month[2]="Mar";
+        month[3]="Apr";
+        month[4]="May";
+        month[5]="Jun";
+        month[6]="Jul";
+        month[7]="Aug";
+        month[8]="Sep";
+        month[9]="Oct";
+        month[10]="Nov";
+        month[11]="Dec";
+        
+        return month[monthIndex];
+    }
     
-    return month[monthIndex];
-}
-
-function DayAsString(dayIndex) {
-    var weekdays = new Array(7);
-    weekdays[0] = "Sunday";
-    weekdays[1] = "Monday";
-    weekdays[2] = "Tuesday";
-    weekdays[3] = "Wednesday";
-    weekdays[4] = "Thursday";
-    weekdays[5] = "Friday";
-    weekdays[6] = "Saturday";
-    
-    return weekdays[dayIndex];
-}
+    function DayAsString(dayIndex) {
+        var weekdays = new Array(7);
+        weekdays[0] = "Sun";
+        weekdays[1] = "Mon";
+        weekdays[2] = "Tue";
+        weekdays[3] = "Wed";
+        weekdays[4] = "Thu";
+        weekdays[5] = "Fri";
+        weekdays[6] = "Sat";
+        
+        return weekdays[dayIndex];
+    }
 
 var startDate = new Date();
 var aryDates = GetDates(startDate, 15);
