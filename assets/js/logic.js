@@ -11,7 +11,6 @@
             var latGeo = response.results[0].geometry.location.lat
             var longGeo = response.results[0].geometry.location.lng
             callHiking(latGeo, longGeo)
-            callWeather(latGeo, longGeo)
         });
     }
 
@@ -91,18 +90,18 @@
     });
     }
 
-    var days = 14;
+    var days = 7;
 
-    function callWeather(latGeo, longGeo){
+    function callWeather(latitude, longitude){
         $.ajax({ //api.openweathermap.org/data/2.5/forecast/daily?lat=35&lon=139&cnt=10
-        url: "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" + latGeo + "&lon=" + longGeo + "&units=imperial&cnt=" + days + "&appid=166a433c57516f51dfab1f7edaed8413",
+        url: "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" + latitude + "&lon=" + longitude + "&units=imperial&cnt=" + days + "&appid=166a433c57516f51dfab1f7edaed8413",
         method: "GET",
         type: "json"
 
     }).then(function (response) {
-        console.log(response)
+        // console.log(response)
         var resp = response.list// 0 is today. Actual response is reponse of var days.
-        console.log(resp.length)
+        // console.log(resp.length)
 
 
 
@@ -187,7 +186,7 @@
     }
 
 var startDate = new Date();
-var aryDates = GetDates(startDate, 15);
+var aryDates = GetDates(startDate, 7);
 var aryLen = aryDates.length
 console.log(aryDates);
 
