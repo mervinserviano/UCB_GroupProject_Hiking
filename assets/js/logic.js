@@ -1,39 +1,7 @@
-
-    var lat;
-    var long;
-
-    // function getLocation() {
-    //     if (navigator.geolocation) {
-    //         navigator.geolocation.getCurrentPosition(showPosition);
-    //     } else {
-    //         console.log("Geolocation is not supported by this browser.");
-    //     }
-    // }
-    // function showPosition(position) {
-    //     // console.log("Latitude: " + position.coords.latitude +
-    //     //     "Longitude: " + position.coords.longitude);
-
-    //     lat = position.coords.latitude;
-    //     long = position.coords.longitude;
-    //     console.log(long,lat)
-    //     makeCall(long, lat)
-    // }
-
-    // getLocation()
-
-    // var APIKey = "166a433c57516f51dfab1f7edaed8413";
-    // var locationZip = zip=94102,us
-    // var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + locationZip + "&appid=" + APIKey;
-
-    // var place = prompt('Enter a City or Town: ').toLowerCase().trim();
-    // var country = prompt('Enter a Country or State Initials: ').toLowerCase().trim();
-
-
-
     function callGeo(place) {
         $.ajax({
 
-            url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + place + '&key=AIzaSyCd001KkrxyfVaMHMnO9UUbZYHN6ZTU3RQ',
+            url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + place + '&key=AIzaSyBGdZ5PEZ_h5alUL3ZXKlEc6It_kSBRhmY',
             method: "GET",
             type: "json"
         }).then(function (response) {
