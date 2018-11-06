@@ -82,7 +82,7 @@
                 <div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Status: ${response.trails[i].conditionStatus}</li>
-                        <li class="list-group-item">Condition: ${response.trails[i].conditionDetails}</li>
+                        <li class="list-group-item">Summary: ${response.trails[i].summary}</li>
                         <li class="list-group-item">Difficulty: ${response.trails[i].difficulty}</li>
                         <li class="list-group-item">Stars: ${response.trails[i].stars}<li>
                     </ul>
@@ -104,7 +104,7 @@
                 <div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Status: ${response.trails[i].conditionStatus}</li>
-                        <li class="list-group-item">Condition: ${response.trails[i].conditionDetails}</li>
+                        <li class="list-group-item">Summary: ${response.trails[i].summary}</li>
                         <li class="list-group-item">Difficulty: ${response.trails[i].difficulty}</li>
                         <li class="list-group-item">Stars: ${response.trails[i].stars}<li>
                     </ul>
