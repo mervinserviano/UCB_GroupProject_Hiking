@@ -12,6 +12,10 @@ nav.navbar {
     font-family: lobster;
 }
 
+h2 {
+    font-family: acme;
+}
+
 body {
     background-image: url(../assets/images/Hiking_Site.jpg);
     color: black;
@@ -22,8 +26,9 @@ div.card {
     top: 80px;
     width: 50%;
     text-align: center;
-    border: 1px solid transparent;
-    border-radius: 10px;
+    /* border: 1px solid transparent; */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-body {
@@ -34,10 +39,11 @@ div.card {
     width: 80%;
     margin: 0;
     text-align: center;  
-    height: 60px;
-    border-radius: 10px;
-    border: solid transparent gray 5px;
-
+    height: 80px;
+    border-radius: 20px;
+    /* border: solid lightgray 5px;    */
+    border: 15px solid rgba(228, 223, 223, 0.5);
+    background-clip: padding-box;
     
 }
 
@@ -45,14 +51,15 @@ button {
     cursor: pointer;
     height: 60px;
     border-radius: 10px;
-    width: 130px;
+    width: 110px;
+    padding: 0;
 }
 
 .top-left {
     position: absolute;
     top: 8px;
     left: 16px;
-    text-align: center;
+
 }
 
 .container {
@@ -66,7 +73,7 @@ img.card-img-top {
     margin: 0;
     padding: 0;
     height: 200px;   
-    border-radius: 10px;
+    border-radius: 5px;
     background-size: cover;
         height: 23rem;
         background-blend-mode: screen;
@@ -85,4 +92,10 @@ img.card-img-top {
 
 .container-fluid {
     padding: 0;
+}
+
+img {
+    border-radius: 10px;
+    border: solid 3px lightgray;
+    /* border: 5px solid rgba(228, 223, 223, 0.5); */
 }
