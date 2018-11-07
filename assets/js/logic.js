@@ -115,19 +115,15 @@
             // console.log("icon: " + resp[i].weather[0].icon) //will return weather description eg "light rain"
             // console.log("Description: " + resp[i].weather[0].description) //will return weather description eg "light rain"
            
-            var weatherCon = $(`<div class="weather" style="float: left;">
-            <div class="card-body">
-                <div class="fluid-container">
-                    <div>
+            var weatherCon = $(`
+                    <div class="col" style="height: 80px">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">${aryDates[i]}</li>
                             <li class="list-group-item">Low: ${minTemp}F</li>
                             <li class="list-group-item">High: ${maxTemp}F</li>
                             <li class="list-group-item">${resp[i].weather[0].main} <img src="http://openweathermap.org/img/w/${resp[i].weather[0].icon}.png"><li>
                         </ul>
-                    </div>
-                </div>
-            </div>`);
+                    </div>`);
             $('#weather').append(weatherCon)
 
         } //weather icons can be pulled: http://openweathermap.org/img/w/10d.png
