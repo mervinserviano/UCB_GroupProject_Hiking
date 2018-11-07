@@ -44,17 +44,17 @@ div.card {
     margin: 0;
     text-align: center;  
     height: 80px;
-    border-radius: 20px;
+    border-radius: 20px 0px 0px 20px ;
     /* border: solid lightgray 5px;    */
     border: 15px solid rgba(228, 223, 223, 0.5);
     background-clip: padding-box;
     
 }
 
-button {
+.btn {
     cursor: pointer;
-    height: 60px;
-    border-radius: 10px;
+    height: 80px;
+    border-radius: 20px;
     width: 110px;
     padding: 0;
     border: 15px solid rgba(228, 223, 223, 0.5);
