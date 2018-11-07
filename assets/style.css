@@ -3,6 +3,8 @@ body {
     margin: 0;
     background-image: url(../assets/images/Hiking_Site.jpg);
     color: black;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 nav.navbar {
