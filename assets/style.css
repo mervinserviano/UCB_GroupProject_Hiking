@@ -2,14 +2,15 @@ body {
     padding: 0;
     margin: 0;
     background-image: url(../assets/images/Hiking_Site.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
     color: black;
 }
 
 nav.navbar {
     height: 90px;
     background-color: darkseagreen;
-    opacity: 0.8;
-    
+    opacity: 0.8;  
 }
 
 .navbar-brand {
@@ -19,11 +20,16 @@ nav.navbar {
     font-family: lobster;
 }
 
-h2 {
-    font-family: acme;
+h1 {
+    margin-top: 80px;
+    font-family: mallanna;
+    font-size: 70px;
 }
 
-
+h2 {
+    font-family: acme;
+    margin-top: 200px;
+}
 
 div.card {
     margin: 0 auto;
@@ -41,19 +47,18 @@ div.card {
 
 #searchTextField {
     width: 80%;
-    margin: 0;
+    margin: 20px 0px;
     text-align: center;  
-    height: 80px;
+    height: 90px;
     border-radius: 20px 0px 0px 20px ;
-    /* border: solid lightgray 5px;    */
     border: 15px solid rgba(228, 223, 223, 0.5);
-    background-clip: padding-box;
-    
+    background-clip: padding-box;    
 }
 
 .btn {
     cursor: pointer;
-    height: 80px;
+    margin: 20px 0px;
+    height: 90px;
     border-radius: 20px;
     width: 110px;
     padding: 0;
@@ -65,14 +70,7 @@ div.card {
     position: absolute;
     top: 8px;
     left: 16px;
-
 }
-
-/* .container {
-    
-    text-align: center;
-    padding: 0;
-} */
 
 img.card-img-top {
     margin: 0;
@@ -80,10 +78,10 @@ img.card-img-top {
     height: 200px;   
     border-radius: 5px;
     background-size: cover;
-        height: 23rem;
-        background-blend-mode: screen;
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    height: 23rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 
 .list-group-item {
@@ -96,12 +94,11 @@ img.card-img-top {
     top: 40px;
 }
 
-/* .container-fluid {
-    padding: 0;
-} */
-
 img {
     border-radius: 10px;
     border: solid 3px lightgray;
-    /* border: 5px solid rgba(228, 223, 223, 0.5); */
+}
+
+.container {
+    padding: 0;
 }
