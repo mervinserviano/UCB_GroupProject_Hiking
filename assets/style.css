@@ -53,7 +53,7 @@ div.card {
     
 }
 
-.btn {
+.searchBtn {
     cursor: pointer;
     height: 80px;
     border-radius: 20px;
@@ -106,4 +106,12 @@ img {
     border-radius: 10px;
     border: solid 3px lightgray;
     /* border: 5px solid rgba(228, 223, 223, 0.5); */
+}
+
+#weather {
+    height: 200px;
+}
+
+#quote {
+    font-family: 'Charmonman', cursive;
 }

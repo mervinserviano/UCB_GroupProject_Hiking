@@ -99,7 +99,7 @@
         type: "json"
 
     }).then(function (response) {
-        // console.log(response)
+        console.log(response)
         var resp = response.list// 0 is today. Actual response is reponse of var days.
         // console.log(resp.length)
 
@@ -108,6 +108,7 @@
         for (var i = 0; i < resp.length; i++) {
             var minTemp = (Math.round(resp[i].temp.min))
             var maxTemp = (Math.round(resp[i].temp.max))
+            var aveTemp = ((maxTemp + minTemp)/2);
             
             // console.log("Date: " + aryDates[i])
             // console.log("min temp: " + minTemp) //return the daily min or use max
@@ -115,21 +116,40 @@
             // console.log("icon: " + resp[i].weather[0].icon) //will return weather description eg "light rain"
             // console.log("Description: " + resp[i].weather[0].description) //will return weather description eg "light rain"
            
+            // var weatherCon = $(`
+            //         <div class="col text-center" style="height: 80px">
+            //             <ul class="list-group list-group-flush">
+            //                 <li class="list-group-item">${aryDates[i]}</li>
+            //                 <li class="list-group-item">${aveTemp}F</li>
+            //                 <li class="list-group-item">${resp[i].weather[0].main} <img src="http://openweathermap.org/img/w/${resp[i].weather[0].icon}.png"><li>
+            //             </ul>
+            //         </div>`);
+
+            
+
             var weatherCon = $(`
-                    <div class="col" style="height: 80px">
-                        <ul class="list-group list-group-flush">
+                    
+                    <div class="col text-center" style="height: 80px">
+                    <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseMe${i}">${aryDates[i]}</button>
+                        <ul id="collapseMe${i}" class="list-group collapse list-group-flush">
                             <li class="list-group-item">${aryDates[i]}</li>
-                            <li class="list-group-item">Low: ${minTemp}F</li>
-                            <li class="list-group-item">High: ${maxTemp}F</li>
-                            <li class="list-group-item">${resp[i].weather[0].main} <img src="http://openweathermap.org/img/w/${resp[i].weather[0].icon}.png"><li>
+                            <li class="list-group-item">${aveTemp}F</li>
+                            <li class="list-group-item">${resp[i].weather[0].main} 
+                            <img src="http://openweathermap.org/img/w/${resp[i].weather[0].icon}.png"><li>
                         </ul>
                     </div>`);
             $('#weather').append(weatherCon)
+            
 
         } //weather icons can be pulled: http://openweathermap.org/img/w/10d.png
 
-       
-        
+        var quote = $(`
+                <div id="quote" class="row mb-2 mt-2" style="background-color: yellow;">
+                    <div class="col-lg-12 text-center">
+                        <h2>The mountains are calling and I must go.</h2>
+                    </div>
+                </div>`);
+        // $('#results').prepend(quote)
 //TODO icon reference to our own icons 
 
         });
@@ -170,13 +190,13 @@
     
     function DayAsString(dayIndex) {
         var weekdays = new Array(7);
-        weekdays[0] = "Sun";
-        weekdays[1] = "Mon";
-        weekdays[2] = "Tue";
-        weekdays[3] = "Wed";
-        weekdays[4] = "Thu";
-        weekdays[5] = "Fri";
-        weekdays[6] = "Sat";
+        weekdays[0] = "Su";
+        weekdays[1] = "Mo";
+        weekdays[2] = "Tu";
+        weekdays[3] = "We";
+        weekdays[4] = "Th";
+        weekdays[5] = "Fr";
+        weekdays[6] = "Sa";
         
         return weekdays[dayIndex];
     }
