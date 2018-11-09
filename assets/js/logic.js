@@ -25,6 +25,8 @@
         console.log('Trails')
         console.log(response)
 
+        $("#results").empty();
+        $("#weather").empty();
        
         if(response.trails.length === 0) {
             console.log("No Trails Here. Search in a different location.")
@@ -219,7 +221,6 @@ console.log(aryDates);
     google.maps.event.addDomListener(window, 'load', initialize);
 
     function consoleMe() {
-        $(".input-group").addClass("hidden")
         var inputer = $(input).val().split(" ");
         var secondLast = inputer.indexOf(inputer[inputer.length - 2])
         var last = inputer.indexOf(inputer[inputer.length - 1])
