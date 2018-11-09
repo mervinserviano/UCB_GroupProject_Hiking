@@ -90,7 +90,7 @@
     });
     }
 
-    var days = 7;
+    var days = 6;
 
     function callWeather(latitude, longitude){
         $.ajax({ //api.openweathermap.org/data/2.5/forecast/daily?lat=35&lon=139&cnt=10
@@ -129,13 +129,13 @@
 
             var weatherCon = $(`
                     
-                    <div class="col text-center" style="height: 80px">
+                    <div class="col-md-2 col-sm-6 text-center" style="height: 80px">
                     <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseMe${i}">${aryDates[i]}</button>
                         <ul id="collapseMe${i}" class="list-group collapse list-group-flush">
                             <li class="list-group-item">${aryDates[i]}</li>
                             <li class="list-group-item">${aveTemp}F</li>
-                            <li class="list-group-item">${resp[i].weather[0].main} 
-                            <img src="http://openweathermap.org/img/w/${resp[i].weather[0].icon}.png"><li>
+                            <li class="list-group-item">${resp[i].weather[0].main}
+                            <img src="http://openweathermap.org/img/w/${resp[i].weather[0].icon}.png"></li>
                         </ul>
                     </div>`);
             $('#weather').append(weatherCon)
