@@ -48,7 +48,10 @@ div.card {
 }
 
 .card-body {
-    padding: 0; 
+    padding: 0;
+    display: table;
+    width: 100%;
+
 }
 
 .searchHeader {
@@ -79,10 +82,18 @@ div.card {
     background-clip: padding-box;
 }
 
-.top-left {
+.name-title {
+    display: inline-block;
     position: absolute;
-    top: 8px;
+    top: 90px;
     left: 16px;
+    background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.411), rgba(75, 70, 70, 0.452));
+    box-shadow:         0px 3px 5px 0px rgba(17, 17, 17, 0.521);
+    font-size: 120%;
+    color: white;
+    transform: rotate(-29deg);
+    padding: 2px;
+    border-radius: 30px;
 }
 
 img.card-img-top {
@@ -132,8 +143,15 @@ img {
 
 .container {
     padding: 0;
+    display: table;
+    width: 100%;
+
 }
 
 .hidden {
     display: none;
+}
+
+list-group list-group-flush {
+
 }
