@@ -47,6 +47,10 @@ div.card {
     padding: 0; 
 }
 
+.searchHeader b {
+    color: white;
+}
+
 #searchTextField {
     width: 80%;
     margin: 20px 0px;
