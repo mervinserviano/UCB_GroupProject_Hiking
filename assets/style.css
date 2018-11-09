@@ -137,3 +137,7 @@ img {
 .hidden {
     display: none;
 }
+
+.trailCards {
+    height: 17rem;
+}

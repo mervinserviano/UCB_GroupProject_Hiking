@@ -51,7 +51,7 @@ function callHiking(latGeo, longGeo) {
             </div>
             </div>
             <div>
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush trailCards">
                     <li class="list-group-item">Status: ${response.trails[i].conditionStatus}</li>
                     <li class="list-group-item">Summary: ${response.trails[i].summary}</li>
                     <li class="list-group-item">Difficulty: ${response.trails[i].difficulty}</li>
@@ -73,7 +73,7 @@ function callHiking(latGeo, longGeo) {
             </div>
             </div>
             <div>
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush trailCards">
                     <li class="list-group-item">Status: ${response.trails[i].conditionStatus}</li>
                     <li class="list-group-item">Summary: ${response.trails[i].summary}</li>
                     <li class="list-group-item">Difficulty: ${response.trails[i].difficulty}</li>
