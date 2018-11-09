@@ -79,18 +79,10 @@ div.card {
     background-clip: padding-box;
 }
 
-.name-title {
-    display: inline-block;
+.top-left {
     position: absolute;
-    top: 90px;
+    top: 8px;
     left: 16px;
-    background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.411), rgba(75, 70, 70, 0.452));
-    box-shadow:         0px 3px 5px 0px rgba(17, 17, 17, 0.521);
-    font-size: 120%;
-    color: white;
-    transform: rotate(-29deg);
-    padding: 2px;
-    border-radius: 30px;
 }
 
 img.card-img-top {
