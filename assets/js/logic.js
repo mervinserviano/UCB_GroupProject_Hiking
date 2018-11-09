@@ -46,7 +46,7 @@
                 <div class="container">
                 <img class="card-img-top" src="${response.trails[i].imgSmallMed}"
                     alt="Card image cap">
-                    <div class="top-left">${response.trails[i].name}</div>
+                    <div class="name-title">${response.trails[i].name}</div>
                 </div>
                 </div>
                 <div>
@@ -68,7 +68,7 @@
                 <div class="container">
                 <img class="card-img-top" src="${response.trails[i].imgSmallMed}"
                     alt="Card image cap">
-                    <div class="top-left">${response.trails[i].name}</div>
+                    <div class="name-title">${response.trails[i].name}</div>
                 </div>
                 </div>
                 <div>
@@ -92,7 +92,7 @@
     });
     }
 
-    var days = 7;
+    var days = 6;
 
     function callWeather(latitude, longitude){
         $.ajax({ //api.openweathermap.org/data/2.5/forecast/daily?lat=35&lon=139&cnt=10
