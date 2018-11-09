@@ -44,7 +44,7 @@
                 <div class="container">
                 <img class="card-img-top" src="${response.trails[i].imgSmallMed}"
                     alt="Card image cap">
-                    <div class="top-left">${response.trails[i].name}</div>
+                    <div class="name-title">${response.trails[i].name}</div>
                 </div>
                 </div>
                 <div>
@@ -66,7 +66,7 @@
                 <div class="container">
                 <img class="card-img-top" src="${response.trails[i].imgSmallMed}"
                     alt="Card image cap">
-                    <div class="top-left">${response.trails[i].name}</div>
+                    <div class="name-title">${response.trails[i].name}</div>
                 </div>
                 </div>
                 <div>
