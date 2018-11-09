@@ -47,8 +47,11 @@ div.card {
     padding: 0; 
 }
 
-.searchHeader b {
+.searchHeader {
     color: white;
+    margin-top: 80px;
+    font-family: mallanna;
+    font-size: 70px;
 }
 
 #searchTextField {
@@ -116,4 +119,8 @@ img {
 
 .container {
     padding: 0;
+}
+
+.hidden {
+    display: none;
 }
