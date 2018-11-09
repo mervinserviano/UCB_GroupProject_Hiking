@@ -33,6 +33,10 @@ h2 {
     margin-top: 200px;
 }
 
+ul {
+    list-style-type: none;
+}
+
 div.card {
     margin: 0 auto;
     top: 80px;
@@ -118,7 +122,16 @@ img {
 }
 
 #weather {
-    height: 200px;
+    background: white; 
+    border-radius: 15px;
+}
+
+.weatherIcon {
+    width: 50px;
+}
+
+.invisible {
+    display: none;
 }
 
 #quote {

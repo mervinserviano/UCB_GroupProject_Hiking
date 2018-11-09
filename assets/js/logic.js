@@ -54,7 +54,7 @@
                         <li class="list-group-item">Status: ${response.trails[i].conditionStatus}</li>
                         <li class="list-group-item">Summary: ${response.trails[i].summary}</li>
                         <li class="list-group-item">Difficulty: ${response.trails[i].difficulty}</li>
-                        <li class="list-group-item">Stars: ${response.trails[i].stars}<li>
+                        <li class="list-group-item">Stars: ${response.trails[i].stars}</li>
                     </ul>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                         <li class="list-group-item">Status: ${response.trails[i].conditionStatus}</li>
                         <li class="list-group-item">Summary: ${response.trails[i].summary}</li>
                         <li class="list-group-item">Difficulty: ${response.trails[i].difficulty}</li>
-                        <li class="list-group-item">Stars: ${response.trails[i].stars}<li>
+                        <li class="list-group-item">Stars: ${response.trails[i].stars}</li>
                     </ul>
                 </div>
             </div>
@@ -123,25 +123,21 @@
             //             <ul class="list-group list-group-flush">
             //                 <li class="list-group-item">${aryDates[i]}</li>
             //                 <li class="list-group-item">${aveTemp}F</li>
-            //                 <li class="list-group-item">${resp[i].weather[0].main} <img src="http://openweathermap.org/img/w/${resp[i].weather[0].icon}.png"><li>
+            //                 <li class="list-group-item">${resp[i].weather[0].main} <img src="http://openweathermap.org/img/w/${resp[i].weather[0].icon}.png"></li>
             //             </ul>
             //         </div>`);
 
             
 
             var weatherCon = $(`
-                    
-                    <div class="col-md-2 col-sm-6 text-center" style="height: 80px">
-                    <button class="btn btn-success" type="button" data-toggle="collapse" data-target="#collapseMe${i}">${aryDates[i]}</button>
-                        <ul id="collapseMe${i}" class="list-group collapse list-group-flush">
-                            <li class="list-group-item">${aryDates[i]}</li>
-                            <li class="list-group-item">${aveTemp}F</li>
-                            <li class="list-group-item">${resp[i].weather[0].main}
-                            <img src="http://openweathermap.org/img/w/${resp[i].weather[0].icon}.png"></li>
+                    <div class="col text-center">
+                        <ul  class="list-group list-group-flush">
+                            <li>${aryDates[i]}</li>
+                            <li>${aveTemp}F <img class="weatherIcon" src="http://openweathermap.org/img/w/${resp[i].weather[0].icon}.png"></li>
                         </ul>
                     </div>`);
             $('#weather').append(weatherCon)
-            
+            //TODO reformat
 
         } //weather icons can be pulled: http://openweathermap.org/img/w/10d.png
 
@@ -151,8 +147,6 @@
                         <h2>The mountains are calling and I must go.</h2>
                     </div>
                 </div>`);
-        // $('#results').prepend(quote)
-//TODO icon reference to our own icons 
 
         });
     }
@@ -192,13 +186,13 @@
     
     function DayAsString(dayIndex) {
         var weekdays = new Array(7);
-        weekdays[0] = "Su";
-        weekdays[1] = "Mo";
-        weekdays[2] = "Tu";
-        weekdays[3] = "We";
-        weekdays[4] = "Th";
-        weekdays[5] = "Fr";
-        weekdays[6] = "Sa";
+        weekdays[0] = "Sun";
+        weekdays[1] = "Mon";
+        weekdays[2] = "Tue";
+        weekdays[3] = "Wed";
+        weekdays[4] = "Thu";
+        weekdays[5] = "Fri";
+        weekdays[6] = "Sat";
         
         return weekdays[dayIndex];
     }
@@ -230,6 +224,7 @@ console.log(aryDates);
 
         console.log(inputer)
         callGeo(inputer)
+        $('#weather').removeClass('invisible');
     }
 
     
