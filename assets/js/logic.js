@@ -1,8 +1,5 @@
-var apiGoogleKey = "AIzaSyCV0uGNsmDUthQMwCfcVJHJWiWxGoSh2sM";
+var apiGoogleKey = "AIzaSyCfAFrf0VdUE1Wl98Ptp2yLMG4wKO8keFI";
 var apiHikeKey = "200405510-8962507534a69ec877075d4b321c0109";
-
-console.log(apiGoogleKey);
-console.log(apiHikeKey);
 
 function callGeo(place) {
     $.ajax({
