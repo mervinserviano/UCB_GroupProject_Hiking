@@ -1,13 +1,17 @@
+var apiGoogleKey = "AIzaSyCV0uGNsmDUthQMwCfcVJHJWiWxGoSh2sM";
+var apiHikeKey = "200405510-8962507534a69ec877075d4b321c0109";
+
+console.log(apiGoogleKey);
+console.log(apiHikeKey);
+
 function callGeo(place) {
     $.ajax({
 
-        url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + place + '&key=AIzaSyCUNqCpU6lMg4FNWeTPhOT-fY1u8g2YACk',
+        url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + place + '&key=' + apiGoogleKey,
         method: "GET",
         type: "json"
     }).then(function (response) {
         console.log(response)
-        // console.log(response.results[0].geometry.location)
-        // console.log(response.results[0].geometry.location.lng)
         var latGeo = response.results[0].geometry.location.lat
         var longGeo = response.results[0].geometry.location.lng
         callHiking(latGeo, longGeo)
@@ -17,20 +21,20 @@ function callGeo(place) {
 
 function callHiking(latGeo, longGeo) {
     $.ajax({
-    // url: 'https://data.sfgov.org/api/views/u2ac-gv9v/rows.xml',
-    url: 'https://www.hikingproject.com/data/get-trails?lat=' + latGeo + '&' + 'lon=' + longGeo + '&maxDistance=10&key=200381349-b66dbdd97d00ee3c460e33b5beb94b9f',
+    url: 'https://www.hikingproject.com/data/get-trails?lat=' + latGeo + '&' + 'lon=' + longGeo + '&maxDistance=10&key=' + apiHikeKey,
     method: "GET",
     type: "json"
 }).then(function (response) {
     console.log('Trails')
     console.log(response)
 
+    $("#noTrail").empty();
     $("#results").empty();
     $("#weather").empty();
     $("#searchTextField").val("");
    
     if(response.trails.length === 0) {
-        console.log("No Trails Here. Search in a different location.")
+        $("#noTrail").append("No Trails Here. Search in a different location.")
     }else {
         var latitude = response.trails[0].latitude;
         var longitude = response.trails[0].longitude;
